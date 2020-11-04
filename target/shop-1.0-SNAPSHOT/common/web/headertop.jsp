@@ -57,7 +57,7 @@
                             </security:authorize>
                             <security:authorize access = "isAuthenticated()">
                                 <li><a data-toggle="modal" data-target="">Hello, <%=SecurityUtils.getPrincipal().getFullName()%></a></li>
-                                <li><a href="<c:url value=""/>">Logout</a></li>
+                                <li><a href="<c:url value="/logout"/>">Logout</a></li>
                             </security:authorize>
                         </ul>
                     </div>

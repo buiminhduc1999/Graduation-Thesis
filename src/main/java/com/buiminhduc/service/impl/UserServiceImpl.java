@@ -2,15 +2,18 @@ package com.buiminhduc.service.impl;
 
 import com.buiminhduc.model.entity.RoleEntity;
 import com.buiminhduc.model.entity.UserEntity;
+import com.buiminhduc.model.request.UserDto;
 import com.buiminhduc.model.request.UserRequest;
 import com.buiminhduc.repository.UserRepository;
-import com.buiminhduc.service.IUserService;
+import com.buiminhduc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 
-public class UserServiceImpl implements IUserService {
+@Service
+public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
 
@@ -23,8 +26,8 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public UserEntity save(UserRequest userRequest) {
-        UserEntity userEntity = new UserEntity(userRequest.getUsername(),passwordEncoder.encode(userRequest.getPassword()),userRequest.getPhone(),userRequest.getFirstName(),userRequest.getLastName(),userRequest.getAddress(),userRequest.getStatus(), Arrays.asList(new RoleEntity("USER")));
+    public UserEntity save(UserDto userDto) {
+        UserEntity userEntity = new UserEntity(userDto.getUserName(),passwordEncoder.encode(userDto.getPassword()),userDto.getPhone(),userDto.getFirstName(),userDto.getLastName(),userDto.getAddress(),userDto.getStatus(), Arrays.asList(new RoleEntity("USER")));
         return userRepository.save(userEntity);
     }
 }

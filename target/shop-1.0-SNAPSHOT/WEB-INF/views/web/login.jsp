@@ -34,20 +34,20 @@
                                     <button type="submit" class="aa-browse-btn">Login</button>
                                     <label class="rememberme" for="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
                                     <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
+                                    <c:if test="${param.incorrectAccount != null}">
+                                        <div class="alert alert-danger">
+                                            Username or password is incorrect
+                                        </div>
+                                    </c:if>
                                 </form>
                             </div>
-                            <c:if test="${param.incorrectAccount != null}">
-                                <div class="alert alert-danger">
-                                    Username or password is incorrect
-                                </div>
-                            </c:if>
                         </div>
 
 
                         <div class="col-md-6">
                             <div class="aa-myaccount-register">
                                 <h4>Register</h4>
-                                <form id="formSubmit" class="aa-login-form">
+                                <form id="formSubmit" action="/" class="aa-login-form">
 
                                     <label>Username or Email address<span>*</span></label>
                                     <input type="text" placeholder="Username or email" name="userName">
