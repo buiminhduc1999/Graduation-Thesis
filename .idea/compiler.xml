@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Website Fashion" />
         <module name="shop" />
+        <module name="Graduation-Thesis" />
         <module name="shop1" />
         <module name="demoShop" />
       </profile>
